@@ -1,45 +1,69 @@
+const products = [
+    { id: 1, name: "Geforce rtx 2060", price: 150000 },
+    { id: 2, name: "Gigabyte gt 1030" , price: 30000 },
+    { id: 3, name: "Msi gtx 1050ti" , price: 60000  },
+    { id: 4, name: "PnyRtx3070" , price: 300000}
+]
+
+
 alert("Lista de productos: 1. Geforce rtx 2060, 2. Gigabyte gt 1030, 3. Msi gtx 1050ti , 4. PnyRtx3070 , 5. terminar eleccion ");
-let arrayChosenProducts = [];
+let shoppingCart = [];
 
 
-while( 1 ) {
-    let num1 = prompt ("Eliga el producto ingresando el numero");
+
+
+while(  1 ) {
+
+    let num = prompt ("Eliga el producto ingresando el numero");
     
-    if ( num1 === "5" ) {
-        const total = calculatePrice(arrayChosenProducts);
-        alert("Total : " + total);
+    if ( num === "5" ) {
+               
+        calculatePrice()
         break;
     }
 
-    let price = 0;
+        
 
-    switch( num1 ) {
-        case "1":
-            price = 150000;
-            break;
-        case "2":
-            price = 30000;
-            break;
-        case "3":
-            price = 60000;
-            break;
-        case "4":
-            price = 300000;
-            break;
-                            
-    }
-    console.log(arrayChosenProducts)
-    arrayChosenProducts.push(price);
-       
+    if ( num === "1" ) {
+
+        alert(" Agrego al carrito" + products[0].name );
+        
+    }   if ( num === "2" ) {
+
+        alert(" Agrego al carrito" + products[1].name );
+        
+    } if ( num === "3" ) {
+
+        alert(" Agrego al carrito" + products[2].name );
+        
+    } 
+    if ( num === "4" ) {
+
+        alert(" Agrego al carrito" + products[3].name );
+        
+    } 
+
+    addToCart(num);
+
+    
+   
+}
+
+
+function addToCart(product) {
+
+    let add = products.find ((el) => el.id === Number(product));
+    shoppingCart.push (add);
+
 }
    
 
-function calculatePrice(array) {
-    console.log(array)
-    let total = 0;
-    for (let i = 0 ; i < array.length; i++) {
-        const element = array[i]; 
-        total += element;
-    }
-    return total;
+function calculatePrice() {
+
+    alert ("Cantidad de productos agregados " + shoppingCart.length );
+    console.log (shoppingCart)
+    let total = shoppingCart.reduce ((acc,el) => {return  acc + el.price}  , 0);
+    alert (" El total de la compra es : $ " + total);
+
+   
 }

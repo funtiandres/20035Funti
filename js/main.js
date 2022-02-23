@@ -8,7 +8,13 @@ const products = [
 ]
 
 
+
+   
+
 let shoppingCart = [];
+
+
+
 
 let Geforce = document.getElementById("add1"); 
 let Gigabyte = document.getElementById("add2"); 
@@ -17,20 +23,55 @@ let Pny = document.getElementById("add4");
 
 let finishBuy = document.getElementById("buy")
 
-Geforce.onclick = () => addToCart(products[0]);
-Gigabyte.onclick = () => addToCart(products[1]);
-Msi.onclick = () => addToCart(products[2]);
-Pny.onclick = () => addToCart(products[3]);
+
+Geforce.onclick = () => 
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Añadido al carrito',
+        showConfirmButton: false,
+        timer: 800
+      }).then (addToCart(products[0]));
+
+      Gigabyte.onclick = () => 
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Añadido al carrito',
+        showConfirmButton: false,
+        timer: 800
+      }).then (addToCart(products[1]));
+
+      Msi.onclick = () => 
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Añadido al carrito',
+        showConfirmButton: false,
+        timer: 800
+      }).then (addToCart(products[2]));
+
+      Pny.onclick = () => 
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Añadido al carrito',
+        showConfirmButton: false,
+        timer: 800
+      }).then (addToCart(products[3]));
+
+
+
 
 finishBuy.onclick = () => calculatePrice();
 
 
 
-
 function addToCart(product) {
      
-    shoppingCart.push (product);
     
+    shoppingCart.push (product);
+   
 }
    
 
